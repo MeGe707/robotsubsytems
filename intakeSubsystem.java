@@ -34,7 +34,14 @@ private static intakeSubsystem INSTANCE = new intakeSubsystem();
     }   
 
     public void open_intake_motors(double speed){
-        intake_redline_motors.set(speed);
+        if(speed<=0){
+            intake_redline_motors.set(0);
+        }
+
+        else{
+            intake_redline_motors.set(speed);
+        }
+        
     }
 
     public void intakeStopTurning(){
@@ -45,11 +52,19 @@ private static intakeSubsystem INSTANCE = new intakeSubsystem();
         if(speed>0){
         intake_turn_180_motor.set(speed);
         }
+
+        else{
+            intake_turn_180_motor.set(0);
+        }
     }
 
     public void intakeTurnback(double speed){
         if(speed<0){
         intake_turn_180_motor.set(speed);
+        }
+
+        else{
+            intake_turn_180_motor.set(0);
         }
     }
 
